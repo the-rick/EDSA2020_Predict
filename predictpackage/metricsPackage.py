@@ -48,3 +48,20 @@ def dictionary_of_metrics(items):
             'min': round(find_minimum(items), 2),
             'max': round(find_maximum(items), 2)
            }
+
+def date_parser(dates):
+    """
+        Returns a list of strings, in the format 'yyyy-mm-dd'
+    Args:
+        a list of strings in the format 'yyyy-mm-dd hh:mm:ss'
+    Returns:
+        a list of strings
+    Examples:
+        >>>date_parser(dates[:3])
+        ['2019-11-29', '2019-11-29', '2019-11-29']
+    """"
+#create a new list that has split items, dates split from time stamps
+    no_time=[dt.split()[0] for dt in dates]
+    return no_time
+
+
