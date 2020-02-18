@@ -48,7 +48,6 @@ Is a function which takes in a pandas dataframe and returns a modified dataframe
 * Use the entry `np.nan` when a municipality is not found.
 * Extract a list of hashtags from a tweet into a new column named `'hashtags'` in the same dataframe.
 * Use the entry `np.nan` when no hashtags are found.
-```
 
 ## Function 5: Number of Tweets per Day
 
@@ -60,7 +59,7 @@ This a function which calculates the number of tweets that were posted per day.
 - The index of the new dataframe should be named `Date`, and the column of the new dataframe should be `'Tweets'`, corresponding to the date and number of tweets, respectively.
 - The date should be formated as `yyyy-mm-dd`, and should be a datetime object. **Hint:** look up `pd.to_datetime` to see how to do this.
 
-# Function 6: Word Splitter
+## Function 6: Word Splitter
 
 This function splits the sentences in a dataframe's column into a list of the separate words. The created lists should be placed in a column named `'Split Tweets'` in the original dataframe. This is also known as [tokenization](https://www.geeksforgeeks.org/nlp-how-tokenizing-text-sentence-words-works/).
 
