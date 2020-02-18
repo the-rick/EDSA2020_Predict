@@ -5,6 +5,8 @@ def dictionary_of_metrics(items):
         for item in items:
             denominator += item
         return denominator / len(items)
+    def hello():
+        print("Hello")
 
     def find_median(items):
         if len(items) % 2 != 0:
