@@ -11,6 +11,7 @@ def dictionary_of_metrics(items):
                                        'min': 8842.0,
                                        'max': 39660.0}
     """
+    
     def find_mean(items):
         denominator = int()
         for item in items:
