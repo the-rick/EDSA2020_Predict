@@ -11,7 +11,7 @@ def dictionary_of_metrics(items):
                                        'min': 8842.0,
                                        'max': 39660.0}
     """
-    
+
     def find_mean(items):
         denominator = int()
         for item in items:
@@ -60,16 +60,16 @@ def dictionary_of_metrics(items):
            }
 
 def date_parser(dates):
-    """
-        Returns a list of strings, in the format 'yyyy-mm-dd'
-    Args:
-        a list of strings in the format 'yyyy-mm-dd hh:mm:ss'
-    Returns:
-        a list of strings
-    Examples:
-        >>>date_parser(dates[:3])
-        ['2019-11-29', '2019-11-29', '2019-11-29']
-    """"
+    # """
+    #     Returns a list of strings, in the format 'yyyy-mm-dd'
+    # Args:
+    #     a list of strings in the format 'yyyy-mm-dd hh:mm:ss'
+    # Returns:
+    #     a list of strings
+    # Examples:
+    #     >>>date_parser(dates[:3])
+    #     ['2019-11-29', '2019-11-29', '2019-11-29']
+    # ""
 #create a new list that has split items, dates split from time stamps
     no_time=[dt.split()[0] for dt in dates]
     return no_time
