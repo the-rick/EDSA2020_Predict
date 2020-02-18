@@ -1,3 +1,5 @@
+#Function 1
+
 def dictionary_of_metrics(items):
     """ 
     Returns a dictionary of metrics (mean, median, variance, standard deviation, minimum and maximum)
@@ -59,6 +61,8 @@ def dictionary_of_metrics(items):
             'max': round(find_maximum(items), 2)
            }
 
+# Function 3
+
 def date_parser(dates):
     # """
     #     Returns a list of strings, in the format 'yyyy-mm-dd'
@@ -74,6 +78,8 @@ def date_parser(dates):
     no_time=[dt.split()[0] for dt in dates]
     return no_time
 
+# Function 4
+
 def extract_municipality_hashtags(df):
     # Args:
     #     pandas dataframe 
@@ -88,13 +94,8 @@ def extract_municipality_hashtags(df):
     #    2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
     #    3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
     #    4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
-    #    ...	...	...	...	...
-    #    195	Eskom's Visitors Centres’ facilities include i...	2019-11-20 10:29:07	NaN	NaN
-    #    196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	NaN	[#eskom, #eskom, #poweringyourworld]
-    #    197	@ArthurGodbeer Is the power restored as yet?	2019-11-20 10:07:59	NaN	NaN
-    #    198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	NaN	NaN
-    #    199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	NaN	NaN
     #""""
+    
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
@@ -128,4 +129,30 @@ def extract_municipality_hashtags(df):
     
     return ret
 
+# Function 7
+
+def stop_words_remover(df):
+    
+    # a function which removes english stop words from a tweet.
+    # Args:
+    #     pandas dataframe 
+    # Returns:
+    #     returns a modified dataframe "Without Stop Words"
+    #""""
+    # Example Output:
+    #       ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
+    #       ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
+    
+    df['Without Stop Words'] = df['Tweets'].apply(lambda func: func.lower().split())
+#     print(df['Without Stop Words'].head())
+    for stop_words in stop_words_dict.values():
+#         print(stop_words)
+        for word in stop_words:
+            if df['Without Stop Words'].str.contains(word).all():
+#                 print("I found a stop word "  '('+word+')')
+#                 continue
+                df['Without Stop Words'] = df['Without Stop Words'].apply(lambda x: ' '.join([word for word in x if word not in (stop_words)]))
+            
+    df['Without Stop Words'] = df['Without Stop Words'].map(lambda tweet: tweet.split())
+    return df
 
