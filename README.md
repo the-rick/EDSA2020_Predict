@@ -1,4 +1,4 @@
-# EDSA2020_Predict
+# EDSA2020_Predict Team 16
 
 ## This repo contains our functions for doing some stuff to data:
 
@@ -49,3 +49,38 @@ Is a function which takes in a pandas dataframe and returns a modified dataframe
 * Extract a list of hashtags from a tweet into a new column named `'hashtags'` in the same dataframe.
 * Use the entry `np.nan` when no hashtags are found.
 ```
+
+## Function 5: Number of Tweets per Day
+
+This a function which calculates the number of tweets that were posted per day. 
+
+**Function Specifications:**
+- It should take a pandas dataframe as input.
+- It should return a new dataframe, grouped by day, with the number of tweets for that day.
+- The index of the new dataframe should be named `Date`, and the column of the new dataframe should be `'Tweets'`, corresponding to the date and number of tweets, respectively.
+- The date should be formated as `yyyy-mm-dd`, and should be a datetime object. **Hint:** look up `pd.to_datetime` to see how to do this.
+
+# Function 6: Word Splitter
+
+This function splits the sentences in a dataframe's column into a list of the separate words. The created lists should be placed in a column named `'Split Tweets'` in the original dataframe. This is also known as [tokenization](https://www.geeksforgeeks.org/nlp-how-tokenizing-text-sentence-words-works/).
+
+**Function Specifications:**
+- It should take a pandas dataframe as an input.
+- The dataframe should contain a column, named `'Tweets'`.
+- The function should split the sentences in the `'Tweets'` into a list of seperate words, and place the result into a new column named `'Split Tweets'`. The resulting words must all be lowercase!
+- The function should modify the input dataframe directly.
+- The function should return the modified dataframe.
+
+# Function 7: Stop Words
+
+This function removes english stop words from a tweet.
+
+**Function Specifications:**
+- It should take a pandas dataframe as input.
+- Should tokenise the sentences according to the definition in function 6. Note that function 6 **cannot be called within this function**.
+- Should remove all stop words in the tokenised list. The stopwords are defined in the `stop_words_dict` variable defined at the top of this notebook.
+- The resulting tokenised list should be placed in a column named `"Without Stop Words"`.
+- The function should modify the input dataframe.
+- The function should return the modified dataframe.
+
+## The End
