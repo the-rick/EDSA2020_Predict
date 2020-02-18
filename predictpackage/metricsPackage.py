@@ -75,8 +75,26 @@ def date_parser(dates):
     return no_time
 
 def extract_municipality_hashtags(df):
-    # your code here
-    
+    # Args:
+    #     pandas dataframe 
+    # Returns:
+    #     returns a modified dataframe that includes two new columns that contain information 
+    #       about the municipality and hashtag of the twee
+    #""""
+    # Example Output:
+    #    Tweets	Date	municipality	hashtags
+    #    0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	NaN	NaN
+    #    1	@saucy_mamiie Pls log a call on 0860037566	2019-11-29 12:46:53	NaN	NaN
+    #    2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
+    #    3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
+    #    4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
+    #    ...	...	...	...	...
+    #    195	Eskom's Visitors Centres’ facilities include i...	2019-11-20 10:29:07	NaN	NaN
+    #    196	#Eskom connected 400 houses and in the process...	2019-11-20 10:25:20	NaN	[#eskom, #eskom, #poweringyourworld]
+    #    197	@ArthurGodbeer Is the power restored as yet?	2019-11-20 10:07:59	NaN	NaN
+    #    198	@MuthambiPaulina @SABCNewsOnline @IOL @eNCA @e...	2019-11-20 10:07:41	NaN	NaN
+    #    199	RT @GP_DHS: The @GautengProvince made a commit...	2019-11-20 10:00:09	NaN	NaN
+    #""""
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
