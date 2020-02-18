@@ -129,6 +129,19 @@ def extract_municipality_hashtags(df):
     
     return ret
 
+# Function 6
+
+def word_splitter(df):
+
+    # a function which splits the sentences in a dataframe's column into a list of the separate words.
+    # Args:
+    #   pandas dataframe
+    # Returns:
+    #   returns a modified dataframe with new column named 'Split Tweets'
+    nwe_col = [i.split() for i in df['Tweets']]
+    df["Split Tweets"] = nwe_col
+    return df
+
 # Function 7
 
 def stop_words_remover(df):
@@ -137,7 +150,7 @@ def stop_words_remover(df):
     # Args:
     #     pandas dataframe 
     # Returns:
-    #     returns a modified dataframe "Without Stop Words"
+    #     returns a modified dataframe 'without stopwords'
     #""""
     # Example Output:
     #       ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
