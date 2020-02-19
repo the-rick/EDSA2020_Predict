@@ -9,6 +9,6 @@ setup(
     long_description=open('README.md').read(),
     install_requires=['numpy', 'pandas'],
     url='https://github.com/the-rick/EDSA2020_Predict',
-    author='titusndondo',
+    author='AnalyseGroup16',
     author_email='tbndondo@gmail.com'
 )
