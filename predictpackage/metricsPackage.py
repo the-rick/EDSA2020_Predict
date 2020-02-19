@@ -108,24 +108,24 @@ def extract_municipality_hashtags(df):
     
     def hash_tags(df):
 
-            hash_words = []
-            search_value = '#'
-            
-            if search_value in df:
-                hash_words.append(df.split())
-                hash_tags = []
-                for tag in hash_words[0]:
-                    if search_value in tag:
-                        hash_tags.append(tag.lower())
-                return hash_tags
-            
-            else:
-                return np.nan
+        hash_words = []
+        search_value = '#'
+        
+        if search_value in df:
+            hash_words.append(df.split())
+            hash_tags = []
+            for tag in hash_words[0]:
+                if search_value in tag:
+                    hash_tags.append(tag.lower())
+            return hash_tags    
+        
+        else:
+            return np.nan
 
-    df['municipality'] = df['Tweets'].apply(lambda y: mun_func(y))
-    df['hashtags'] = df['Tweets'].apply(lambda y: hash_tags(y))
-    
-    ret = df[['Tweets', 'Date', 'municipality', 'hashtags']]
+        df['municipality'] = df['Tweets'].apply(lambda y: mun_func(y))
+        df['hashtags'] = df['Tweets'].apply(lambda y: hash_tags(y))
+        
+        ret = df[['Tweets', 'Date', 'municipality', 'hashtags']]
     
     return ret
 
