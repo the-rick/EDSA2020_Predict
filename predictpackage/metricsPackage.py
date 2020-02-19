@@ -71,10 +71,28 @@ def five_num_summary(items):
     Returns:
         A dictionary of min,max,median,lower and upper quartile
     """
+    
+    def find_median(items):
+        if len(items) % 2 != 0:
+            sorted_values = sorted(items)
+            position = round(len(items) / 2.1)
+            return sorted_values[position]
+        else:
+            sorted_values = sorted(items)
+            position1 = int((len(sorted_values) / 2) - 1)
+            position2 = int((len(sorted_values) / 2))
+            return (sorted_values[position1] + sorted_values[position2]) / 2
+    
+    def find_maximum(items):
+        return sorted(items)[-1]
+
+    def find_minimum(items):
+        return sorted(items)[0]
+    
     odict = {}
-    odict['max']= np.round(max(items),2)
-    odict['median']=np.round(np.median(items),2)
-    odict['min']= np.round(min(items),2)
+    odict['max']= round(find_maximum(items),2)
+    odict['median'] = round(find_median(items),2)
+    odict['min'] = round(find_minimum(items),2)
     odict['q1'] = np.round(np.quantile(items, 0.25),2)
     odict['q3'] = np.round(np.quantile(items, 0.75),2)   
   
