@@ -7,7 +7,9 @@
 ```
 pip install git+https://github.com/the-rick/EDSA2020_Predict/
 ```
-
+```
+import predictpackage as (whatever)
+```
 ## Function 1: Metric Dictionary
 
 This is a function that calculates the mean, median, variance, standard deviation, minimum and maximum of of list of items. You can assume the given list is contains only numerical entries, and you may use numpy functions to do this.
