@@ -101,7 +101,7 @@ def date_parser(dates):
 # Function 4
 
 def extract_municipality_hashtags(df):
-    """"
+    """
      Args:
          pandas dataframe 
      Returns:
@@ -152,13 +152,13 @@ def extract_municipality_hashtags(df):
 # Function 5 
 
 def number_of_tweets_per_day(df):
-    
-    # Returns a dataframe of the number of tweets per date
-    # Args:
-    #     A dataframe with Tweets column and a dates column in the format 'yyyy-mm-dd hh:mm:ss'
-    # Returns:
-    #     A dataframe with number of tweets per day, with date in the format 'yyyy-mm-dd'
-    
+    """
+    Returns a dataframe of the number of tweets per date
+    Args:
+        A dataframe with Tweets column and a dates column in the format 'yyyy-mm-dd hh:mm:ss'
+    Returns:
+        A dataframe with number of tweets per day, with date in the format 'yyyy-mm-dd'
+    """
     
     df['Date'] = date_parser(df['Date'])
     df = df.groupby('Date').count()
@@ -167,13 +167,13 @@ def number_of_tweets_per_day(df):
 # Function 6
 
 def word_splitter(df):
-    
-    #a function which splits the sentences in a dataframe's column into a list of the separate words.
-    #Args:
-    #  pandas dataframe
-    #Returns:
-    #  returns a modified dataframe with new column named 'Split Tweets'
-
+    """
+    a function which splits the sentences in a dataframe's column into a list of the separate words.
+    Args:
+     pandas dataframe
+    Returns:
+     returns a modified dataframe with new column named 'Split Tweets'
+    """
     new_col = [i.lower().split() for i in df['Tweets']]
     df["Split Tweets"] = new_col
     return df
@@ -181,28 +181,22 @@ def word_splitter(df):
 # Function 7
 
 def stop_words_remover(df):
+    """
+    a function which removes english stop words from a tweet.
+    Args:
+       pandas dataframe 
+    Returns:
+       returns a modified dataframe 'without stopwords'
     
-    #a function which removes english stop words from a tweet.
-    #Args:
-    #    pandas dataframe 
-    #Returns:
-    #    returns a modified dataframe 'without stopwords'
-    #
-    #Example Output:
-    #      ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
-    #      ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
-    # 
-    
+    Example Output:
+         ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
+         ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
+    """
     df['Without Stop Words'] = df['Tweets'].apply(lambda func: func.lower().split())
-#     print(df['Without Stop Words'].head())
     for stop_words in stop_words_dict.values():
-#         print(stop_words)
         for word in stop_words:
             if df['Without Stop Words'].str.contains(word).all():
-#                 print("I found a stop word "  '('+word+')')
-#                 continue
                 df['Without Stop Words'] = df['Without Stop Words'].apply(lambda x: ' '.join([word for word in x if word not in (stop_words)]))
             
     df['Without Stop Words'] = df['Without Stop Words'].map(lambda tweet: tweet.split())
-
     return df
