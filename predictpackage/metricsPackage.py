@@ -60,6 +60,24 @@ def dictionary_of_metrics(items):
             'min': round(find_minimum(items), 2),
             'max': round(find_maximum(items), 2)
            }
+#Function 2
+def five_num_summary(items):
+    """
+    Returns a dictionary of the five number summary
+    Args:
+        A list of interger values
+    Returns:
+        A dictionary of min,max,median,lower and upper quartile
+    """
+    odict = {}
+    odict['max']= np.round(max(items),2)
+    odict['median']=np.round(np.median(items),2)
+    odict['min']= np.round(min(items),2)
+    odict['q1'] = np.round(np.quantile(items, 0.25),2)
+    odict['q3'] = np.round(np.quantile(items, 0.75),2)   
+  
+    return odict
+
 
 # Function 3
 
@@ -95,7 +113,7 @@ def extract_municipality_hashtags(df):
         2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
         3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
         4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
-    """"
+    """
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
