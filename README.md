@@ -8,7 +8,7 @@
 pip install git+https://github.com/the-rick/EDSA2020_Predict/
 ```
 ```
-import predictpackage as (whatever)
+import predictPackage as (whatever)
 ```
 ## Function 1: Metric Dictionary
 
