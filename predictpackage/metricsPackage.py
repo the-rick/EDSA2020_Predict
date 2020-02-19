@@ -129,6 +129,17 @@ def extract_municipality_hashtags(df):
     
     return ret
 
+# Function 5 
+
+def number_of_tweets_per_day(df):
+    """
+    Returns a dataframe of the number of tweets per date
+    
+    """
+    df['Date'] = date_parser(df['Date'])
+    df = df.groupby('Date').count()
+    return df
+
 # Function 6
 
 def word_splitter(df):
