@@ -1,6 +1,7 @@
 #Function 1
 
 def dictionary_of_metrics(items):
+    
     """ 
     Returns a dictionary of metrics (mean, median, variance, standard deviation, minimum and maximum)
     
@@ -64,6 +65,7 @@ def dictionary_of_metrics(items):
 #Function 2
 
 def five_num_summary(items):
+
     """
     Returns a dictionary of the five number summary
     Args:
@@ -102,6 +104,7 @@ def five_num_summary(items):
 # Function 3
 
 def date_parser(dates):
+
     """
          Returns a list of strings, in the format 'yyyy-mm-dd'
      Args:
@@ -112,6 +115,7 @@ def date_parser(dates):
          >>>date_parser(dates[:3])
          ['2019-11-29', '2019-11-29', '2019-11-29']
     """
+
     #create a new list that has split items, dates split from time stamps
     no_time=[dt.split()[0] for dt in dates]
     return no_time
@@ -119,6 +123,7 @@ def date_parser(dates):
 # Function 4
 
 def extract_municipality_hashtags(df):
+
     """
      Args:
          pandas dataframe 
@@ -134,6 +139,7 @@ def extract_municipality_hashtags(df):
         3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
         4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
     """
+
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
@@ -170,6 +176,7 @@ def extract_municipality_hashtags(df):
 # Function 5 
 
 def number_of_tweets_per_day(df):
+
     """
     Returns a dataframe of the number of tweets per date
     Args:
@@ -185,6 +192,7 @@ def number_of_tweets_per_day(df):
 # Function 6
 
 def word_splitter(df):
+
     """
     a function which splits the sentences in a dataframe's column into a list of the separate words.
     Args:
@@ -192,6 +200,7 @@ def word_splitter(df):
     Returns:
      returns a modified dataframe with new column named 'Split Tweets'
     """
+
     new_col = [i.lower().split() for i in df['Tweets']]
     df["Split Tweets"] = new_col
     return df
@@ -199,6 +208,7 @@ def word_splitter(df):
 # Function 7
 
 def stop_words_remover(df):
+
     """
     a function which removes english stop words from a tweet.
     Args:
@@ -210,6 +220,7 @@ def stop_words_remover(df):
          ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
          ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
     """
+
     df['Without Stop Words'] = df['Tweets'].apply(lambda func: func.lower().split())
     for stop_words in stop_words_dict.values():
         for word in stop_words:
