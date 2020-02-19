@@ -74,7 +74,7 @@ def date_parser(dates):
          >>>date_parser(dates[:3])
          ['2019-11-29', '2019-11-29', '2019-11-29']
     """
-#create a new list that has split items, dates split from time stamps
+    #create a new list that has split items, dates split from time stamps
     no_time=[dt.split()[0] for dt in dates]
     return no_time
 
