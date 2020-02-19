@@ -142,12 +142,12 @@ def extract_municipality_hashtags(df):
         else:
             return np.nan
 
-        df['municipality'] = df['Tweets'].apply(lambda y: mun_func(y))
-        df['hashtags'] = df['Tweets'].apply(lambda y: hash_tags(y))
-        
-        ret = df[['Tweets', 'Date', 'municipality', 'hashtags']]
+    df['municipality'] = df['Tweets'].apply(lambda y: mun_func(y))
+    df['hashtags'] = df['Tweets'].apply(lambda y: hash_tags(y))
     
-        return ret
+    ret = df[['Tweets', 'Date', 'municipality', 'hashtags']]
+
+    return ret
 
 # Function 5 
 
@@ -174,7 +174,7 @@ def word_splitter(df):
     #Returns:
     #  returns a modified dataframe with new column named 'Split Tweets'
 
-    new_col = [i.split() for i in df['Tweets']]
+    new_col = [i.lower().split() for i in df['Tweets']]
     df["Split Tweets"] = new_col
     return df
 
