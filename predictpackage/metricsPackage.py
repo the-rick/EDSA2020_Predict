@@ -81,7 +81,7 @@ def date_parser(dates):
 # Function 4
 
 def extract_municipality_hashtags(df):
-    """
+    """"
      Args:
          pandas dataframe 
      Returns:
@@ -95,11 +95,7 @@ def extract_municipality_hashtags(df):
         2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
         3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
         4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
-<<<<<<< HEAD
     """"
-=======
-    """
->>>>>>> ed9e82323f00d534631129bb0c772cc76910f82d
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
@@ -190,23 +186,3 @@ def stop_words_remover(df):
     df['Without Stop Words'] = df['Without Stop Words'].map(lambda tweet: tweet.split())
 
     return df
-
-#Function 2
-def five_num_summary(items):
-"""
- Returns a dictionary of the five number summary
- Args:
-    A list of integer values
- Returns:
-    A dictionary of the five number summary(min,max,median,lower and upper quartiles) for given list
-"""
-    odict = {}
-    odict['max']= np.round(max(items),2)
-    odict['median']=np.round(np.median(items),2)
-    odict['min']= np.round(min(items),2)
-    odict['q1'] = np.round(np.quantile(items, 0.25),2)
-    odict['q3'] = np.round(np.quantile(items, 0.75),2)   
-  
-    return odict
- 
-
