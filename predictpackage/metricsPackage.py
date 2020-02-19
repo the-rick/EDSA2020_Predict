@@ -60,7 +60,9 @@ def dictionary_of_metrics(items):
             'min': round(find_minimum(items), 2),
             'max': round(find_maximum(items), 2)
            }
+
 #Function 2
+
 def five_num_summary(items):
     """
     Returns a dictionary of the five number summary
@@ -145,7 +147,7 @@ def extract_municipality_hashtags(df):
         
         ret = df[['Tweets', 'Date', 'municipality', 'hashtags']]
     
-    return ret
+        return ret
 
 # Function 5 
 
