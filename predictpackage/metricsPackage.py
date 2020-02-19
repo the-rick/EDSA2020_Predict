@@ -64,16 +64,16 @@ def dictionary_of_metrics(items):
 # Function 3
 
 def date_parser(dates):
-    # """
-    #     Returns a list of strings, in the format 'yyyy-mm-dd'
-    # Args:
-    #     a list of strings in the format 'yyyy-mm-dd hh:mm:ss'
-    # Returns:
-    #     a list of strings
-    # Examples:
-    #     >>>date_parser(dates[:3])
-    #     ['2019-11-29', '2019-11-29', '2019-11-29']
-    # ""
+    """
+         Returns a list of strings, in the format 'yyyy-mm-dd'
+     Args:
+         a list of strings in the format 'yyyy-mm-dd hh:mm:ss'
+     Returns:
+         a list of strings
+     Example:
+         >>>date_parser(dates[:3])
+         ['2019-11-29', '2019-11-29', '2019-11-29']
+    """
 #create a new list that has split items, dates split from time stamps
     no_time=[dt.split()[0] for dt in dates]
     return no_time
@@ -81,20 +81,21 @@ def date_parser(dates):
 # Function 4
 
 def extract_municipality_hashtags(df):
-    # Args:
-    #     pandas dataframe 
-    # Returns:
-    #     returns a modified dataframe that includes two new columns that contain information 
-    #       about the municipality and hashtag of the twee
-    #""""
-    # Example Output:
-    #    Tweets	Date	municipality	hashtags
-    #    0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	NaN	NaN
-    #    1	@saucy_mamiie Pls log a call on 0860037566	2019-11-29 12:46:53	NaN	NaN
-    #    2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
-    #    3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
-    #    4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
-    #""""
+    """"
+     Args:
+         pandas dataframe 
+     Returns:
+         returns a modified dataframe that includes two new columns that contain information 
+           about the municipality and hashtag of the twee
+    
+     Example Output:
+        Tweets	Date	municipality	hashtags
+        0	@BongaDlulane Please send an email to mediades...	2019-11-29 12:50:54	NaN	NaN
+        1	@saucy_mamiie Pls log a call on 0860037566	2019-11-29 12:46:53	NaN	NaN
+        2	@BongaDlulane Query escalated to media desk.	2019-11-29 12:46:10	NaN	NaN
+        3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
+        4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
+    """"
     
     def mun_func(df):
         muns = []
@@ -133,7 +134,11 @@ def extract_municipality_hashtags(df):
 
 def number_of_tweets_per_day(df):
     """
-    Returns a dataframe of the number of tweets per date
+     Returns a dataframe of the number of tweets per date
+     Args:
+         A dataframe with Tweets column and a dates column in the format 'yyyy-mm-dd hh:mm:ss'
+     Returns:
+         A dataframe with number of tweets per day, with date in the format 'yyyy-mm-dd'
     
     """
     df['Date'] = date_parser(df['Date'])
@@ -143,12 +148,13 @@ def number_of_tweets_per_day(df):
 # Function 6
 
 def word_splitter(df):
-
-    # a function which splits the sentences in a dataframe's column into a list of the separate words.
-    # Args:
-    #   pandas dataframe
-    # Returns:
-    #   returns a modified dataframe with new column named 'Split Tweets'
+    """
+     a function which splits the sentences in a dataframe's column into a list of the separate words.
+     Args:
+       pandas dataframe
+     Returns:
+       returns a modified dataframe with new column named 'Split Tweets'
+    """
     nwe_col = [i.split() for i in df['Tweets']]
     df["Split Tweets"] = nwe_col
     return df
@@ -156,16 +162,17 @@ def word_splitter(df):
 # Function 7
 
 def stop_words_remover(df):
+    """
+     a function which removes english stop words from a tweet.
+     Args:
+         pandas dataframe 
+     Returns:
+         returns a modified dataframe 'without stopwords'
     
-    # a function which removes english stop words from a tweet.
-    # Args:
-    #     pandas dataframe 
-    # Returns:
-    #     returns a modified dataframe 'without stopwords'
-    #""""
-    # Example Output:
-    #       ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
-    #       ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
+     Example Output:
+           ['@BongaDlulane', 'Please', 'send', 'an', 'email', 'to', 'mediades@eskom.co.za']
+           ['@bongadlulane', 'send', 'email', 'mediadesk@eskom.co.za']
+    """
     
     df['Without Stop Words'] = df['Tweets'].apply(lambda func: func.lower().split())
 #     print(df['Without Stop Words'].head())
