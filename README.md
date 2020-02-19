@@ -5,7 +5,7 @@
 # Usage:
 
 ```
-pip install git+https://github.com/the-rick/EDSA2020_Predict/
+pip install git+https://github.com/the-rick/Python-Metric-Functions/
 ```
 ```
 import predictpackage as (whatever)
