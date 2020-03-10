@@ -139,7 +139,13 @@ def extract_municipality_hashtags(df):
         3	Before leaving the office this afternoon, head...	2019-11-29 12:33:36	NaN	NaN
         4	#ESKOMFREESTATE #MEDIASTATEMENT : ESKOM SUSPEN...	2019-11-29 12:17:43	NaN	[#eskomfreestate, #mediastatement]
     """
-
+    mun_dict = {'@CityofCTAlerts' : 'Cape Town',
+                '@CityPowerJhb' : 'Johannesburg',
+                '@eThekwiniM' : 'eThekwini' ,
+                '@EMMInfo' : 'Ekurhuleni',
+                '@centlecutility' : 'Mangaung',
+                '@NMBmunicipality' : 'Nelson Mandela Bay',
+                '@CityTshwane' : 'Tshwane'}
     def mun_func(df):
         muns = []
         for d_ in mun_dict.keys():
